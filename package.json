@@ -1,0 +1,20 @@
+{
+  "name": "simg-client",
+  "version": "1.0.0",
+  "description": "an s3 style client for a simg server",
+  "license": "ISC",
+  "author": "nocturnal",
+  "type": "commonjs",
+  "main": "simg-connect.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "axios": "^1.8.4"
+  },
+  "devDependencies": {
+    "dotenv": "^16.5.0",
+    "mocha": "^11.1.0",
+    "supertest": "^7.1.0"
+  }
+}
