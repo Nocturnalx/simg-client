@@ -30,7 +30,7 @@ class UploadClient {
 			return res.data;
 		}
 		catch (err) {
-			console.error(`Error uploading ${this.baseUrl}/${command.folder}/${command.name}`);
+			console.error(`Error uploading ${this.baseUrl}/${command.folder}/${command.filename}`);
 			this.#throwErrors(err);
 		}
 	}
@@ -49,7 +49,7 @@ class UploadClient {
 			return command.filename;
 		}
 		catch (err) {
-			console.error(`Error deleting ${this.baseUrl}/${command.folder}/${command.name}`);
+			console.error(`Error deleting ${this.baseUrl}/${command.folder}/${command.filename}`);
 			this.#throwErrors(err)
 		}
 
