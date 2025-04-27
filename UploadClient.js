@@ -29,7 +29,8 @@ class UploadClient {
 			let res = await axios.post(url, command.body, { headers }); 
 			return res.data;
 		}
-		catch (err) { 
+		catch (err) {
+			console.error(`Error uploading ${this.baseUrl}/${command.folder}/${command.name}`);
 			this.#throwErrors(err);
 		}
 	}
@@ -48,6 +49,7 @@ class UploadClient {
 			return command.filename;
 		}
 		catch (err) {
+			console.error(`Error deleting ${this.baseUrl}/${command.folder}/${command.name}`);
 			this.#throwErrors(err)
 		}
 
@@ -61,7 +63,6 @@ class UploadClient {
 		if (err.status == 403) throw new InvalidAPIKeyError();
 		else if (err.status == 404) throw new FileNotFoundError();
 		else if (err.status == 400) {
-			console.log(err.response.data.code);
 			if (err.response.data.code == 'INVFLDR') throw new InvalidFolderError();
 			else if(err.response.data.code == 'INVNAME') throw new InvalidFilenameError();
 		}
